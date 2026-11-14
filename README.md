@@ -1,5 +1,7 @@
 # Afiliado Pro · landing page
 
+[![CI](https://github.com/GuilhermeBSthyrmer/afiliado-pro-site/actions/workflows/ci.yml/badge.svg)](https://github.com/GuilhermeBSthyrmer/afiliado-pro-site/actions/workflows/ci.yml) [![CodeQL](https://github.com/GuilhermeBSthyrmer/afiliado-pro-site/actions/workflows/codeql.yml/badge.svg)](https://github.com/GuilhermeBSthyrmer/afiliado-pro-site/actions/workflows/codeql.yml)
+
 Landing page for **Afiliado Pro**, a Windows desktop app I built that watches WhatsApp and Telegram groups for product links (Shopee, Mercado Livre, Amazon, AliExpress), swaps them for the user's own affiliate link and reposts the offer in the user's groups.
 
 The page is in Portuguese, because the product is for Brazilian affiliates.
@@ -24,12 +26,24 @@ The visual language is a Brazilian supermarket offer flyer (*encarte*): drenched
 - All illustrations are hand-authored inline SVG.
 - Responsive down to 320 px, keyboard accessible, visible focus, themed selection and scrollbar.
 
+## Tests
+
+End-to-end tests with [Playwright](https://playwright.dev/), each scenario run on a desktop and a mobile viewport (Chromium). 4 scenarios: the page loads without console errors or horizontal overflow, the live demo switches offers and can be paused, the ad template editor renders WhatsApp formatting and drops empty lines, and the sign-up form validates and confirms.
+
+Every push runs the suite on GitHub Actions, together with Lighthouse (accessibility and best practices must score 90 or more) and CodeQL security analysis. Dependabot keeps the dependencies up to date.
+
+```bash
+npm install
+npx playwright install chromium
+npm test
+```
+
 ## Run locally
 
 Open `index.html` in a browser, or serve the folder:
 
 ```bash
-npx serve .
+npm start   # http://localhost:4180
 ```
 
 ## Structure

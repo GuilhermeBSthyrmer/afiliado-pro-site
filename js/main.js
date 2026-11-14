@@ -281,7 +281,9 @@
       return a && b;
     };
 
-    [nome, contato].forEach((i) => i.addEventListener('blur', () => { if (i.value) validar(); }));
+    // Erro some enquanto a pessoa digita, nunca no blur: se sumisse no blur, o botão
+    // subiria no meio do toque em "Quero testar" e o toque cairia fora dele.
+    [nome, contato].forEach((i) => i.addEventListener('input', () => { if (i.getAttribute('aria-invalid') === 'true') validar(); }));
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!validar()) {
