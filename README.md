@@ -4,7 +4,7 @@ Landing page for **Afiliado Pro**, a Windows desktop app I built that watches Wh
 
 The page is in Portuguese, because the product is for Brazilian affiliates.
 
-**Live:** `https://cururupernatorta.github.io/afiliado-pro-site/` (after GitHub Pages is enabled)
+**Live:** https://guilhermebsthyrmer.github.io/afiliado-pro-site/
 
 ## Design
 
