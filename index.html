@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Afiliado Pro</title>
+  <meta name="description" content="App para Windows que pega a oferta que aparece num grupo de WhatsApp ou Telegram e posta no seu grupo, com o seu link de afiliado.">
+  <meta property="og:title" content="Afiliado Pro">
+  <meta property="og:description" content="A oferta aparece num grupo. Sai no seu, com o seu link.">
+  <meta name="theme-color" content="#FFD400">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--
+THESIS: a página é um encarte de ofertas de supermercado, porque é isso que o app produz o dia inteiro; recusa o hero de SaaS com grade de cards.
+OWN-WORLD: campos de amarelo encarte, etiqueta de preço vermelha, tinta preta, estrelas de "OFERTA", linha pontilhada de recorte, Archivo condensada black itálica nos preços.
+STORY: o afiliado entende que o app pega a oferta de qualquer grupo e posta no dele com o link dele; acredita que não inventa desconto e aguenta o dia todo; pede para testar.
+FIRST VIEWPORT: manchete condensada gigante à esquerda com o botão "Quero testar"; à direita o encarte ao vivo mostrando a oferta entrando, sendo convertida e saindo no seu grupo.
+FORM: encarte de ofertas.
+-->
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="faixa" aria-hidden="true">
+  <div class="faixa__trilho">
+    <span>Shopee</span><span>Mercado Livre</span><span>Amazon</span><span>AliExpress</span><span>WhatsApp</span><span>Telegram</span>
+    <span>Shopee</span><span>Mercado Livre</span><span>Amazon</span><span>AliExpress</span><span>WhatsApp</span><span>Telegram</span>
+  </div>
+</div>
+
+<header class="topo">
+  <div class="topo__in">
+    <a class="marca" href="#" aria-label="Afiliado Pro, início">
+      <svg class="marca__tag" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 8h20l12 12-12 12H4z" fill="#E30613"/><circle cx="11" cy="20" r="3" fill="#FFD400"/></svg>
+      <span>Afiliado<b>Pro</b></span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#como">Como funciona</a>
+      <a href="#lojas">Lojas</a>
+      <a href="#modelo">Modelo de anúncio</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn--tinta" href="#testar">Quero testar</a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__in">
+      <div class="hero__texto">
+        <h1 class="hero__titulo">A oferta aparece num grupo. <span>Sai no seu, com o seu link.</span></h1>
+        <p class="hero__sub">O Afiliado Pro fica de olho nos grupos e canais que você escolhe no WhatsApp e no Telegram, troca o link pelo seu link de afiliado e posta a oferta pronta nos seus grupos.</p>
+        <div class="hero__acoes">
+          <a class="btn btn--vermelho btn--grande" href="#testar">Quero testar</a>
+          <a class="btn btn--linha" href="#como">Ver como funciona</a>
+        </div>
+        <ul class="hero__fatos">
+          <li>App para Windows</li>
+          <li>Roda no seu computador</li>
+          <li>Seus dados ficam com você</li>
+        </ul>
+      </div>
+
+      <figure class="encarte" aria-label="Demonstração: uma oferta passando pelo Afiliado Pro">
+        <div class="encarte__estrela" aria-hidden="true">
+          <svg viewBox="0 0 120 120"><polygon points="60,2 69,22 89,10 89,33 112,31 100,51 118,64 97,73 106,95 83,92 78,115 60,101 42,115 37,92 14,95 23,73 2,64 20,51 8,31 31,33 31,10 51,22" fill="#E30613"/></svg>
+          <span>ao vivo</span>
+        </div>
+
+        <div class="etapa etapa--entrada" data-etapa="1">
+          <p class="etapa__rotulo"><span class="ponto"></span><span>Grupo monitorado · <b data-campo="origem">Achadinhos da Bia</b></span></p>
+          <div class="msg msg--deles">
+            <p data-campo="msgOrigem">olha esse fone 😱 https://shp.ee/demo</p>
+            <time data-campo="horaOrigem">14:02</time>
+          </div>
+        </div>
+
+        <div class="etapa etapa--app" data-etapa="2">
+          <p class="etapa__rotulo"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 8h20l12 12-12 12H4z" fill="#141414"/><circle cx="11" cy="20" r="3" fill="#FFD400"/></svg> Afiliado Pro</p>
+          <ol class="checks">
+            <li data-check="1">Loja detectada: <b data-campo="loja">Shopee</b></li>
+            <li data-check="2">Preço pela <span data-campo="fonte">API oficial de afiliados</span></li>
+            <li data-check="3">Link trocado pelo seu: <code data-campo="linkCurto">s.shopee.com.br/AbC123</code></li>
+          </ol>
+        </div>
+
+        <div class="etapa etapa--saida" data-etapa="3">
+          <p class="etapa__rotulo"><span class="ponto ponto--verde"></span><span>Seu grupo · <b data-campo="destino">Ofertas Tech</b></span></p>
+          <article class="oferta">
+            <div class="oferta__img" data-campo="imagem" aria-hidden="true"></div>
+            <div class="oferta__corpo">
+              <h3 class="oferta__nome" data-campo="titulo">Fone Bluetooth com cancelamento de ruído</h3>
+              <p class="oferta__de" data-campo="de">de R$ 159,00</p>
+              <p class="preco"><span class="preco__rs">R$</span><span class="preco__int" data-campo="precoInt">89</span><span class="preco__cent" data-campo="precoCent">,90</span></p>
+              <p class="oferta__selo" data-campo="desconto">43% OFF</p>
+            </div>
+          </article>
+        </div>
+
+        <figcaption class="encarte__rodape">
+          <span>Exemplo ilustrativo</span>
+          <span class="encarte__ctrl">
+            <button type="button" class="mini" data-acao="pausar" aria-pressed="false">Pausar</button>
+            <button type="button" class="mini" data-acao="proxima">Próxima oferta</button>
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="recorte" aria-hidden="true"></div>
+  </section>
+
+  <!-- LOJAS -->
+  <section class="lojas" id="lojas">
+    <div class="sec">
+      <h2 class="titulo-sec">As quatro lojas que mais circulam nos grupos</h2>
+      <p class="lead">O app reconhece o link mesmo encurtado (<code>shp.ee</code>, <code>meli.la</code>, <code>amzn.to</code>, <code>a.co</code>) e gera o link de afiliado pelo caminho que cada loja oferece.</p>
+      <ul class="etiquetas">
+        <li class="etiqueta">
+          <h3>Shopee</h3>
+          <p>Preço, foto e link de afiliado direto da API oficial de afiliados da Shopee.</p>
+          <span class="etiqueta__furo" aria-hidden="true"></span>
+        </li>
+        <li class="etiqueta">
+          <h3>Mercado Livre</h3>
+          <p>Dados pela API de catálogo e link no formato vitrine <code>meli.la</code>, igual ao do painel de afiliados.</p>
+          <span class="etiqueta__furo" aria-hidden="true"></span>
+        </li>
+        <li class="etiqueta">
+          <h3>Amazon</h3>
+          <p>Link com a sua Associate Tag, inclusive quando a oferta chegou como <code>amzn.to</code>.</p>
+          <span class="etiqueta__furo" aria-hidden="true"></span>
+        </li>
+        <li class="etiqueta">
+          <h3>AliExpress</h3>
+          <p>Link pela API de afiliados com o seu Tracking ID. Produto fora do programa sai com o link original.</p>
+          <span class="etiqueta__furo" aria-hidden="true"></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="como" id="como">
+    <div class="sec">
+      <h2 class="titulo-sec">Do grupo dos outros para o seu, em quatro passos</h2>
+      <ol class="passos">
+        <li class="passo">
+          <span class="passo__n" aria-hidden="true">1</span>
+          <h3>Conecte</h3>
+          <p>Leia o QR Code com o WhatsApp. No Telegram, entre com o número e o código que chega por SMS.</p>
+        </li>
+        <li class="passo">
+          <span class="passo__n" aria-hidden="true">2</span>
+          <h3>Escolha de onde vêm as ofertas</h3>
+          <p>Marque os grupos e canais que o app vai vigiar. Se quiser, ele também busca ofertas sozinho de tempos em tempos, pelo nicho que você definir.</p>
+        </li>
+        <li class="passo">
+          <span class="passo__n" aria-hidden="true">3</span>
+          <h3>Diga para onde elas vão</h3>
+          <p>Cada grupo de destino pode ter o próprio nicho. Grupo sem nicho recebe tudo.</p>
+        </li>
+        <li class="passo">
+          <span class="passo__n" aria-hidden="true">4</span>
+          <h3>Ele posta</h3>
+          <p>As ofertas entram numa fila e saem com intervalo entre uma e outra, no modelo de anúncio que você montou.</p>
+        </li>
+      </ol>
+
+      <div class="nicho" aria-label="Exemplo de nicho por grupo">
+        <div class="nicho__col">
+          <p class="nicho__cab">Ofertas capturadas</p>
+          <ul class="nicho__lista">
+            <li data-n="tech">Fone Bluetooth</li>
+            <li data-n="casa">Air fryer 4 L</li>
+            <li data-n="casa">Garrafa térmica</li>
+            <li data-n="tech">Carregador 20 W</li>
+          </ul>
+        </div>
+        <svg class="nicho__setas" viewBox="0 0 120 200" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 30 C60 30 60 40 120 40" /><path d="M0 80 C60 80 60 100 120 100" />
+          <path d="M0 130 C60 130 60 100 120 100" /><path d="M0 175 C60 175 60 40 120 40" />
+          <path class="tudo" d="M0 30 C70 30 50 165 120 165" /><path class="tudo" d="M0 80 C70 80 50 165 120 165" />
+        </svg>
+        <div class="nicho__col">
+          <p class="nicho__cab">Seus grupos</p>
+          <ul class="nicho__grupos">
+            <li><b>Ofertas Tech</b><span>nicho: eletrônicos</span></li>
+            <li><b>Casa em Promoção</b><span>nicho: casa e cozinha</span></li>
+            <li><b>Achados do Dia</b><span>sem nicho: recebe tudo</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELO DE ANÚNCIO -->
+  <section class="modelo" id="modelo">
+    <div class="sec">
+      <h2 class="titulo-sec">Você escreve o anúncio uma vez</h2>
+      <p class="lead">Use as variáveis e veja a mensagem como ela chega no grupo. Negrito com <code>*</code>, riscado com <code>~</code>. Linhas de desconto e de cupom somem sozinhas quando o produto não tem.</p>
+
+      <div class="editor">
+        <div class="editor__lado">
+          <div class="editor__produtos" role="radiogroup" aria-label="Produto de exemplo">
+            <button type="button" class="chip" role="radio" aria-checked="true" data-produto="0">Fone (com desconto)</button>
+            <button type="button" class="chip" role="radio" aria-checked="false" data-produto="1">Air fryer (com Pix)</button>
+            <button type="button" class="chip" role="radio" aria-checked="false" data-produto="2">Garrafa (sem desconto, com cupom)</button>
+          </div>
+          <label class="editor__label" for="template">Modelo do anúncio</label>
+          <textarea id="template" class="editor__texto" rows="14" spellcheck="false"></textarea>
+          <div class="editor__vars" aria-label="Inserir variável">
+            <button type="button" class="var" data-var="{title}">{title}</button>
+            <button type="button" class="var" data-var="{price_line}">{price_line}</button>
+            <button type="button" class="var" data-var="{discount_line}">{discount_line}</button>
+            <button type="button" class="var" data-var="{pix_line}">{pix_line}</button>
+            <button type="button" class="var" data-var="{coupon_line}">{coupon_line}</button>
+            <button type="button" class="var" data-var="{store}">{store}</button>
+            <button type="button" class="var" data-var="{affiliate_url}">{affiliate_url}</button>
+            <button type="button" class="var" data-var="{group_link}">{group_link}</button>
+          </div>
+          <button type="button" class="link-btn" data-acao="restaurar">Voltar ao modelo padrão</button>
+        </div>
+
+        <div class="celular" aria-live="polite">
+          <div class="celular__topo"><b>Achados do Dia</b><span>148 participantes</span></div>
+          <div class="celular__tela">
+            <div class="msg msg--minha">
+              <div class="msg__img" data-prev="imagem" aria-hidden="true"></div>
+              <p class="msg__texto" data-prev="texto"></p>
+              <time>agora</time>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="verdade">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><polygon points="60,2 69,22 89,10 89,33 112,31 100,51 118,64 97,73 106,95 83,92 78,115 60,101 42,115 37,92 14,95 23,73 2,64 20,51 8,31 31,33 31,10 51,22" fill="#FFD400"/></svg>
+        <p><b>Desconto só quando é de verdade.</b> O “de R$ X por R$ Y” só aparece quando a loja mostra um preço original maior que o atual, e a porcentagem é arredondada para baixo, como o Mercado Livre faz. O app nunca inventa preço antigo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FICA LIGADO -->
+  <section class="ligado">
+    <div class="sec ligado__in">
+      <div>
+        <h2 class="titulo-sec">Feito para ficar ligado o dia inteiro</h2>
+        <ul class="garantias">
+          <li><b>Reconecta sozinho.</b> Se a internet cai, ele tenta de novo com espera crescente e avisa na tela que o WhatsApp caiu.</li>
+          <li><b>Não repete anúncio.</b> A mesma oferta não sai duas vezes no mesmo grupo, nem quando chega por dois grupos diferentes.</li>
+          <li><b>Oferta vencida não volta.</b> O que passou da hora não é reanunciado depois.</li>
+          <li><b>Tenta de novo quando a loja barra.</b> A captura que falhou por bloqueio volta para a fila com espera dobrando, até seis vezes.</li>
+          <li><b>Pausou, parou.</b> A fila respeita a pausa na hora.</li>
+          <li><b>Registro que explica.</b> Cada captura diz de qual grupo veio, e a tela de registros exporta tudo em CSV.</li>
+        </ul>
+      </div>
+      <div class="log" role="img" aria-label="Exemplo da tela de registros do app">
+        <div class="log__cab"><span>Registros</span><span class="log__exp">Exportar CSV</span></div>
+        <ol class="log__linhas" data-log>
+          <li><time>14:02:11</time><span class="ok">capturado</span> Fone Bluetooth · Shopee · de “Achadinhos da Bia”</li>
+          <li><time>14:02:12</time><span class="ok">link</span> gerado pela API oficial de afiliados</li>
+          <li><time>14:04:30</time><span class="info">fila</span> enviado para “Ofertas Tech”</li>
+          <li><time>14:05:40</time><span class="aviso">ignorado</span> oferta já anunciada hoje em “Ofertas Tech”</li>
+          <li><time>14:31:02</time><span class="erro">conexão</span> WhatsApp caiu (sem internet). Nova tentativa em 20 s</li>
+          <li><time>14:31:44</time><span class="ok">conexão</span> reconectado. Monitorando 5 grupos</li>
+        </ol>
+        <p class="log__nota">Exemplo ilustrativo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NO SEU PC -->
+  <section class="local">
+    <div class="sec local__in">
+      <svg class="local__icone" viewBox="0 0 96 96" aria-hidden="true">
+        <rect x="10" y="16" width="76" height="50" rx="4" fill="none" stroke="#141414" stroke-width="5"/>
+        <path d="M34 80h28M48 66v14" stroke="#141414" stroke-width="5" stroke-linecap="round"/>
+        <path d="M30 40l12 10 22-20" fill="none" stroke="#E30613" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <h2 class="titulo-sec">Roda no seu computador</h2>
+        <p class="lead">Produtos, grupos e histórico ficam num banco de dados no seu PC, não num servidor de terceiros. A sessão do Mercado Livre é guardada cifrada pelo próprio Windows, e o app se atualiza sozinho quando sai versão nova.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DÚVIDAS -->
+  <section class="duvidas" id="duvidas">
+    <div class="sec">
+      <h2 class="titulo-sec">Dúvidas</h2>
+      <div class="faq">
+        <details>
+          <summary>Preciso deixar o computador ligado?</summary>
+          <p>Sim. O Afiliado Pro é um app para Windows e trabalha enquanto está aberto. Se o PC desligar, ele reconecta sozinho quando você abrir de novo.</p>
+        </details>
+        <details>
+          <summary>Preciso ter conta nos programas de afiliados?</summary>
+          <p>Sim. O link gerado é o seu, então você precisa estar cadastrado no programa de cada loja que quiser usar e informar as credenciais nas configurações.</p>
+        </details>
+        <details>
+          <summary>E o preço no Pix e o cupom?</summary>
+          <p>Nenhuma das lojas entrega esses dados pela API. Você preenche no produto e eles entram no anúncio pelas variáveis <code>{pix_line}</code> e <code>{coupon_line}</code>. O link da página de cupons também vira link seu.</p>
+        </details>
+        <details>
+          <summary>Funciona no Telegram?</summary>
+          <p>Sim, para monitorar e para postar. Você conecta pelo número e pelo código que chega por SMS.</p>
+        </details>
+        <details>
+          <summary>Tem versão para Mac ou para celular?</summary>
+          <p>Ainda não. Hoje o app é só para Windows.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="testar" id="testar">
+    <div class="sec testar__in">
+      <div>
+        <h2 class="testar__titulo">Quer testar nos seus grupos?</h2>
+        <p>Deixe um contato e diga quantos grupos você administra.</p>
+      </div>
+      <form class="form" novalidate data-form>
+        <div class="campo">
+          <label for="f-nome">Seu nome</label>
+          <input id="f-nome" name="nome" autocomplete="name" required>
+          <p class="campo__erro" id="e-nome"></p>
+        </div>
+        <div class="campo">
+          <label for="f-contato">WhatsApp ou e-mail</label>
+          <input id="f-contato" name="contato" autocomplete="email" required>
+          <p class="campo__erro" id="e-contato"></p>
+        </div>
+        <div class="campo">
+          <label for="f-grupos">Quantos grupos você administra?</label>
+          <select id="f-grupos" name="grupos">
+            <option>Ainda nenhum</option>
+            <option>1 a 3</option>
+            <option>4 a 10</option>
+            <option>Mais de 10</option>
+          </select>
+        </div>
+        <button class="btn btn--tinta btn--grande" type="submit">Quero testar</button>
+        <p class="form__ok" role="status" hidden>Recebido, <span data-nome></span>. Este é um site de demonstração, então nada foi enviado.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="sec rodape__in">
+    <p class="marca marca--rodape"><svg class="marca__tag" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 8h20l12 12-12 12H4z" fill="#E30613"/><circle cx="11" cy="20" r="3" fill="#FFD400"/></svg><span>Afiliado<b>Pro</b></span></p>
+    <p>Landing page de portfólio. Os produtos, preços e links mostrados aqui são exemplos. Shopee, Mercado Livre, Amazon, AliExpress, WhatsApp e Telegram são marcas dos seus donos e não têm relação com este projeto.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
